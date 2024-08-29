@@ -23,26 +23,26 @@
             catch (ArgumentException)
             {
                 Console.WriteLine("Empty input was entered. Aborting.");
-            }
-            try
-            {
-                int sum = _GetSum();
-                int average = _GetAverage();
-
-                // made conditional more readable with context
-                if (_IsAboveZero(sum) && _IsAboveZero(average) && _numbers.Any())
-                {
-                    Console.WriteLine($"The sum is: {sum}");
-                    Console.WriteLine($"The rounded average is: {average}");
-                }
-                else
-                {
-                    Console.WriteLine("Both the sum and the average are 0");
-                }
+                return;
             }
             catch (FormatException)
             {
                 Console.WriteLine("A non-integer input was entered. Aborting.");
+                return;
+            }
+         
+            int sum = _GetSum();
+            int average = _GetAverage();
+
+            // made conditional more readable with context
+            if (_IsAboveZero(sum) && _IsAboveZero(average) && _numbers.Any())
+            {
+                Console.WriteLine($"The sum is: {sum}");
+                Console.WriteLine($"The rounded average is: {average}");
+            }
+            else
+            {
+                Console.WriteLine("Both the sum and the average are 0");
             }
         }
 
